@@ -1,426 +1,385 @@
 import Icon from "@/components/ui/icon";
 
-const HERO_IMG = "https://cdn.poehali.dev/projects/c2d7d140-ae80-4111-8f6e-7429a913c332/files/12d197e8-c9ee-4d59-999e-e0af4d86944e.jpg";
-const CATALOG_IMG = "https://cdn.poehali.dev/projects/c2d7d140-ae80-4111-8f6e-7429a913c332/files/3aa4abcc-bed1-45d8-99d1-5412b4f135a1.jpg";
+const IMG_HERO = "https://cdn.poehali.dev/projects/c2d7d140-ae80-4111-8f6e-7429a913c332/bucket/940e0f1d-e714-4fb7-8ea8-44ec03141662.png";
+const IMG_BATTLE = "https://cdn.poehali.dev/projects/c2d7d140-ae80-4111-8f6e-7429a913c332/bucket/d3f19d1b-e8d7-4376-b025-d910c94aa198.jpg";
+const IMG_LOGO = "https://cdn.poehali.dev/projects/c2d7d140-ae80-4111-8f6e-7429a913c332/bucket/77a69861-b5a0-4278-b30a-2ea5a01d6b1d.jpg";
+const IMG_OBELISK = "https://cdn.poehali.dev/projects/c2d7d140-ae80-4111-8f6e-7429a913c332/files/2e8684b1-d218-4f20-a299-cca28ad01c3b.jpg";
 
-const NAV_LINKS = [
-  { label: "Главная", href: "#hero" },
-  { label: "Каталог", href: "#catalog" },
-  { label: "О нас", href: "#about" },
-  { label: "Доставка", href: "#delivery" },
-  { label: "Контакты", href: "#contacts" },
+const NAV = [
+  { label: "Об игре", href: "#about" },
+  { label: "Механики", href: "#features" },
+  { label: "Геймплей", href: "#gameplay" },
+  { label: "Поддержать", href: "#support" },
 ];
 
-const PRODUCTS = [
-  { name: "Рибай стейк", weight: "300 г", price: 890, badge: "Хит", origin: "Воронежская область", img: HERO_IMG },
-  { name: "Филе миньон", weight: "250 г", price: 1120, badge: "Премиум", origin: "Брянская область", img: CATALOG_IMG },
-  { name: "Стриплойн", weight: "350 г", price: 780, badge: null, origin: "Воронежская область", img: HERO_IMG },
-  { name: "Каре ягнёнка", weight: "400 г", price: 1350, badge: "Премиум", origin: "Дагестан", img: CATALOG_IMG },
-  { name: "Свиная вырезка", weight: "500 г", price: 490, badge: null, origin: "Тульская область", img: HERO_IMG },
-  { name: "Фарш говяжий", weight: "500 г", price: 420, badge: "Выгодно", origin: "Воронежская область", img: CATALOG_IMG },
+const FEATURES = [
+  {
+    icon: "Swords",
+    title: "Spirit Blade",
+    desc: "Десятки видов оружия с активными способностями и пассивными бонусами. Каждое оружие воплощает уникальную легенду — от древних богов до воинов-героев.",
+  },
+  {
+    icon: "Shield",
+    title: "Сердце обороны",
+    desc: "Защищайте обелиски и ключевой артефакт — проводник душ. Обелиски способны атаковать врагов, а через Rogue-like улучшения можно усилить их стихийными эффектами.",
+  },
+  {
+    icon: "Users",
+    title: "Кооператив до 4 игроков",
+    desc: "Каждый выбирает свою роль — танк, саппорт, контроллер толпы или ДД. Победа возможна только через слаженную командную работу.",
+  },
+  {
+    icon: "Skull",
+    title: "12+ рейд-боссов",
+    desc: "Гарантированный босс в конце каждой волны. Каждый тип врагов требует своей тактики — от блокирования Крушителей до уничтожения Призывателей.",
+  },
+  {
+    icon: "Sparkles",
+    title: "Rogue-like прогрессия",
+    desc: "Получайте постоянные усиления трёх типов после каждой волны и этапа. Выбранная стратегия определяет, какие расходники окажутся наиболее эффективными.",
+  },
+  {
+    icon: "Bird",
+    title: "Стратегическое воскрешение",
+    desc: "Гибель в бою открывает новые возможности — павший игрок превращается в ворона с полным обзором поля боя и может возродиться у Алтаря.",
+  },
 ];
 
-const CERTS = [
-  { icon: "ShieldCheck" as const, title: "ГОСТ Р", text: "Вся продукция сертифицирована по российским стандартам качества" },
-  { icon: "Leaf" as const, title: "Фермерское", text: "Мясо от проверенных фермерских хозяйств без антибиотиков и гормонов" },
-  { icon: "Thermometer" as const, title: "Холодовая цепь", text: "Температурный контроль от фермы до вашего стола — от 0 до +4°C" },
-  { icon: "Award" as const, title: "Халяль", text: "Часть ассортимента имеет сертификацию Халяль" },
+const GAMEPLAY_CARDS = [
+  {
+    title: "«Гнездо ворона»",
+    desc: "Хаб-лобби для выбора миссии, экипировки и старта боя. Никаких пустых забегов — каждый выход на поле боя подготовлен.",
+    icon: "Home",
+  },
+  {
+    title: "Глубокая кастомизация",
+    desc: "Система брони — Плащ, Доспех, Шлем — с бонусами за комплекты. Настройте персонажа под свой стиль игры.",
+    icon: "Shirt",
+  },
+  {
+    title: "«Завеса отчаяния»",
+    desc: "Система развития персонажа через испытания. Зарабатывайте «Светоч», сражайтесь с порождениями безумия и открывайте новые способности.",
+    icon: "Flame",
+  },
+  {
+    title: "Сбалансированная экономика",
+    desc: "Три специализированные валюты: Отголоски душ для прокачки, Золотые перья для снаряжения, Осколки идиллиума для эксклюзивной косметики.",
+    icon: "Coins",
+  },
 ];
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
-      {/* ═══ NAV ═══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b border-border">
+    <div className="min-h-screen bg-background text-foreground">
+      {/* NAV */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#hero" className="font-display text-2xl font-bold tracking-tight text-primary">
-            МясоРубка
+          <a href="#hero" className="font-display text-xl font-bold tracking-wide text-foreground">
+            SONG <span className="text-primary">OF THE</span> RAVENS
           </a>
           <div className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((l) => (
+            {NAV.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {l.label}
               </a>
             ))}
           </div>
           <a
-            href="tel:+79001234567"
-            className="hidden sm:flex items-center gap-2 text-sm font-medium text-primary"
+            href="#support"
+            className="text-sm font-semibold bg-primary text-primary-foreground px-5 py-2 hover:bg-primary/90 transition-colors"
           >
-            <Icon name="Phone" size={16} />
-            +7 (900) 123-45-67
+            Поддержать
           </a>
         </div>
       </nav>
 
-      {/* ═══ HERO ═══ */}
-      <section id="hero" className="pt-16">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-32 grid md:grid-cols-2 gap-12 items-center">
+      {/* HERO */}
+      <section id="hero" className="relative pt-16 min-h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={IMG_BATTLE}
+            alt="Song of the Ravens battlefield"
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
+          <div className="absolute inset-0 hero-gradient" />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-6 py-20 md:py-32 grid md:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-up">
-            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-4">
-              Премиальное мясо
-            </span>
-            <h1 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] text-foreground mb-6">
-              От фермы<br />
-              <span className="text-primary">до стола</span>
+            <div className="inline-flex items-center gap-2 border border-primary/30 bg-primary/10 px-4 py-1.5 mb-6">
+              <span className="w-2 h-2 rounded-full bg-primary animate-glow" />
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary">
+                В разработке
+              </span>
+            </div>
+            <h1 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] mb-6">
+              Song of the
+              <br />
+              <span className="text-primary text-glow">Ravens</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-md mb-8 font-body">
-              Свежее фермерское мясо с доставкой за 2 часа. Без посредников, без заморозки, без компромиссов.
+            <p className="text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed">
+              Хардкорная кооперативная tower defense в сеттинге dark fantasy.
+              Объединитесь в отряд до четырёх игроков и отразите натиск заблудших душ
+              в бескомпромиссной борьбе за выживание.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <a
-                href="#catalog"
-                className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 text-sm font-semibold hover:bg-primary/90 transition-colors"
+                href="#about"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:bg-primary/90 transition-colors"
               >
-                Каталог
+                Узнать больше
                 <Icon name="ArrowDown" size={16} />
               </a>
               <a
-                href="#about"
+                href="#support"
                 className="inline-flex items-center gap-2 border border-foreground/20 px-7 py-3.5 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
               >
-                О качестве
+                Поддержать проект
+                <Icon name="Heart" size={16} />
               </a>
             </div>
           </div>
-          <div className="animate-fade-up-delay-1 relative">
-            <div className="aspect-[4/5] overflow-hidden">
+
+          <div className="animate-fade-up-delay-1 hidden md:block">
+            <div className="relative">
               <img
-                src={HERO_IMG}
-                alt="Премиальные стейки"
-                className="w-full h-full object-cover"
+                src={IMG_LOGO}
+                alt="Song of the Ravens Logo"
+                className="w-full rounded-sm shadow-2xl shadow-black/50"
               />
-            </div>
-            <div className="absolute -bottom-4 -left-4 bg-primary text-white px-6 py-4">
-              <div className="text-3xl font-display font-bold">100%</div>
-              <div className="text-xs uppercase tracking-wider">натуральное</div>
+              <div className="absolute -bottom-3 -right-3 w-24 h-24 border border-primary/20 -z-10" />
             </div>
           </div>
         </div>
-      </section>
 
-      {/* ═══ FEATURES STRIP ═══ */}
-      <section className="border-y border-border bg-secondary/50">
-        <div className="max-w-6xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { icon: "Truck", text: "Доставка за 2 часа" },
-            { icon: "Snowflake", text: "Охлаждённое, не замороженное" },
-            { icon: "ShieldCheck", text: "Сертификаты качества" },
-            { icon: "Undo2", text: "Возврат без вопросов" },
-          ].map((f) => (
-            <div key={f.text} className="flex items-center gap-3">
-              <Icon name={f.icon} size={20} className="text-primary shrink-0" />
-              <span className="text-sm font-medium text-foreground">{f.text}</span>
-            </div>
-          ))}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+          <Icon name="ChevronDown" size={24} className="text-muted-foreground" />
         </div>
       </section>
 
-      {/* ═══ CATALOG ═══ */}
-      <section id="catalog" className="py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="mb-12">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary">Каталог</span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mt-2">
-              Выберите свой отруб
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PRODUCTS.map((p) => (
-              <div
-                key={p.name}
-                className="group border border-border hover:border-primary/30 transition-all duration-300 bg-white"
-              >
-                <div className="aspect-[4/3] overflow-hidden relative bg-secondary">
-                  <img
-                    src={p.img}
-                    alt={p.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {p.badge && (
-                    <span className="absolute top-3 left-3 bg-primary text-white text-xs font-semibold px-3 py-1">
-                      {p.badge}
-                    </span>
-                  )}
-                </div>
-                <div className="p-5">
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <h3 className="font-display text-xl font-semibold text-foreground">{p.name}</h3>
-                    <span className="text-lg font-bold text-primary whitespace-nowrap">{p.price} ₽</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground mb-4">
-                    <span>{p.weight}</span>
-                    <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                    <span className="flex items-center gap-1">
-                      <Icon name="MapPin" size={12} />
-                      {p.origin}
-                    </span>
-                  </div>
-                  <button className="w-full border border-foreground/15 py-2.5 text-sm font-semibold text-foreground hover:bg-primary hover:text-white hover:border-primary transition-all duration-200">
-                    В корзину
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ ABOUT / QUALITY ═══ */}
-      <section id="about" className="py-20 md:py-28 bg-foreground text-white">
+      {/* ABOUT */}
+      <section id="about" className="py-24 md:py-32 relative">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <img
+                src={IMG_HERO}
+                alt="Рыцарь-ворон с магической сферой"
+                className="w-full shadow-2xl shadow-black/40"
+              />
+              <div className="absolute -top-4 -left-4 w-full h-full border border-primary/20 -z-10" />
+            </div>
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary">
-                О нас
-              </span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-6">
-                Качество,<br />которому доверяют
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary">Об игре</span>
+              <h2 className="font-display text-4xl md:text-5xl font-bold mt-3 mb-6">
+                Где граница между<br />
+                <span className="text-primary">жизнью и смертью</span><br />
+                стёрта
               </h2>
-              <p className="text-white/70 text-lg leading-relaxed mb-8">
-                МясоРубка — это прямые поставки с лучших фермерских хозяйств России. 
-                Мы лично посещаем каждую ферму, проверяем условия содержания животных 
-                и контролируем каждый этап — от выращивания до доставки к вашему столу.
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                В мире Song of the Ravens тьма поглотила всё живое, а граница между
+                мирами разрушена. Волна за волной заблудшие души штурмуют последний
+                оплот человечества.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                Используйте тактику, уникальное оружие Spirit Blade и древние артефакты,
+                чтобы защитить то, что осталось. Это кооперативная сага о тьме и надежде,
+                где каждое решение определяет ваш уникальный путь к победе.
               </p>
               <div className="grid grid-cols-3 gap-6">
                 {[
-                  { num: "12+", label: "ферм-партнёров" },
-                  { num: "3000+", label: "довольных клиентов" },
-                  { num: "24ч", label: "от фермы до вас" },
+                  { num: "4", label: "игрока в кооперативе" },
+                  { num: "12+", label: "рейд-боссов" },
+                  { num: "30+", label: "видов оружия" },
                 ].map((s) => (
                   <div key={s.label}>
                     <div className="font-display text-3xl font-bold text-primary">{s.num}</div>
-                    <div className="text-sm text-white/50 mt-1">{s.label}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="aspect-square overflow-hidden">
-              <img
-                src={CATALOG_IMG}
-                alt="Ассортимент мяса"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
-            {CERTS.map((c) => (
-              <div key={c.title} className="border border-white/10 p-6">
-                <Icon name={c.icon} size={28} className="text-primary mb-4" />
-                <h3 className="font-display text-xl font-semibold mb-2">{c.title}</h3>
-                <p className="text-sm text-white/50 leading-relaxed">{c.text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ DELIVERY ═══ */}
-      <section id="delivery" className="py-20 md:py-28">
+      {/* FEATURES */}
+      <section id="features" className="py-24 md:py-32 bg-secondary/50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary">Доставка</span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mt-2">
-              Как мы доставляем
+            <span className="text-xs font-semibold tracking-widest uppercase text-primary">Механики</span>
+            <h2 className="font-display text-4xl md:text-5xl font-bold mt-3">
+              Тактическая глубина в каждом решении
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                step: "01",
-                icon: "ShoppingBag",
-                title: "Оформите заказ",
-                text: "Выберите мясо в каталоге и оформите заказ на сайте или по телефону",
-              },
-              {
-                step: "02",
-                icon: "Package",
-                title: "Мы соберём",
-                text: "Бережно упакуем в термобокс с хладоэлементами для сохранения свежести",
-              },
-              {
-                step: "03",
-                icon: "Truck",
-                title: "Доставим за 2 часа",
-                text: "Курьер привезёт заказ в удобное время. Бесплатно от 3 000 ₽",
-              },
-            ].map((s) => (
-              <div key={s.step} className="relative">
-                <span className="font-display text-7xl font-bold text-primary/10">{s.step}</span>
-                <div className="-mt-8 ml-2">
-                  <Icon name={s.icon} size={24} className="text-primary mb-3" />
-                  <h3 className="font-display text-2xl font-semibold text-foreground mb-2">{s.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{s.text}</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {FEATURES.map((f) => (
+              <div
+                key={f.title}
+                className="border border-border bg-card p-6 card-hover"
+              >
+                <div className="w-12 h-12 flex items-center justify-center bg-primary/10 border border-primary/20 mb-5">
+                  <Icon name={f.icon} size={22} className="text-primary" />
                 </div>
+                <h3 className="font-display text-xl font-semibold mb-3">{f.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
-
-          <div className="mt-16 border border-border p-8 md:p-12 grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-display text-2xl font-bold text-foreground mb-4">Условия доставки</h3>
-              <ul className="space-y-3">
-                {[
-                  "Доставка по городу — от 299 ₽",
-                  "Бесплатно при заказе от 3 000 ₽",
-                  "Доставка за 2 часа в пределах МКАД",
-                  "Доставка за город — по договорённости",
-                  "Время доставки: ежедневно с 9:00 до 21:00",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-foreground">
-                    <Icon name="Check" size={16} className="text-primary mt-1 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-display text-2xl font-bold text-foreground mb-4">Оплата</h3>
-              <ul className="space-y-3">
-                {[
-                  "Наличными при получении",
-                  "Картой курьеру (Visa, MasterCard, МИР)",
-                  "Онлайн-оплата на сайте",
-                  "Безналичный расчёт для юридических лиц",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-foreground">
-                    <Icon name="Check" size={16} className="text-primary mt-1 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* ═══ CONTACTS ═══ */}
-      <section id="contacts" className="py-20 md:py-28 bg-secondary/50">
+      {/* GAMEPLAY */}
+      <section id="gameplay" className="py-24 md:py-32 relative">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary">Контакты</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mt-2 mb-8">
-                Свяжитесь с нами
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary">Геймплей</span>
+              <h2 className="font-display text-4xl md:text-5xl font-bold mt-3 mb-6">
+                Максимум экшена<br />
+                <span className="text-primary">без рутины</span>
               </h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0">
-                    <Icon name="Phone" size={18} className="text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground mb-1">Телефон</div>
-                    <a href="tel:+79001234567" className="text-lg font-semibold text-foreground hover:text-primary transition-colors">
-                      +7 (900) 123-45-67
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0">
-                    <Icon name="Mail" size={18} className="text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground mb-1">Email</div>
-                    <a href="mailto:info@myasorubka.ru" className="text-lg font-semibold text-foreground hover:text-primary transition-colors">
-                      info@myasorubka.ru
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0">
-                    <Icon name="MapPin" size={18} className="text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground mb-1">Адрес</div>
-                    <span className="text-lg font-semibold text-foreground">
-                      г. Москва, ул. Мясницкая, 15
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                Мы кардинально меняем формулу Souls-like, убирая долгий бег по локациям.
+                Все битвы с рядовыми врагами и эпические схватки с боссами происходят
+                в рамках обороны одной локации.
+              </p>
+              <img
+                src={IMG_OBELISK}
+                alt="Обелиск обороны"
+                className="w-full shadow-2xl shadow-black/40"
+              />
+            </div>
+            <div className="space-y-5">
+              {GAMEPLAY_CARDS.map((c, i) => (
+                <div
+                  key={c.title}
+                  className="border border-border bg-card p-6 card-hover flex gap-5"
+                >
+                  <div className="shrink-0">
+                    <span className="font-display text-4xl font-bold text-primary/20">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0">
-                    <Icon name="Clock" size={18} className="text-primary" />
-                  </div>
                   <div>
-                    <div className="text-sm text-muted-foreground mb-1">Режим работы</div>
-                    <span className="text-lg font-semibold text-foreground">
-                      Ежедневно с 9:00 до 21:00
-                    </span>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Icon name={c.icon} size={18} className="text-primary" />
+                      <h3 className="font-display text-lg font-semibold">{c.title}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 border border-border">
-              <h3 className="font-display text-2xl font-bold text-foreground mb-6">Оставить заявку</h3>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Имя</label>
-                  <input
-                    type="text"
-                    placeholder="Ваше имя"
-                    className="w-full border border-border px-4 py-3 text-sm bg-white text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Телефон</label>
-                  <input
-                    type="tel"
-                    placeholder="+7 (___) ___-__-__"
-                    className="w-full border border-border px-4 py-3 text-sm bg-white text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Сообщение</label>
-                  <textarea
-                    rows={4}
-                    placeholder="Что хотите заказать?"
-                    className="w-full border border-border px-4 py-3 text-sm bg-white text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-primary text-white py-3.5 text-sm font-semibold hover:bg-primary/90 transition-colors"
-                >
-                  Отправить заявку
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ FOOTER ═══ */}
-      <footer className="bg-foreground text-white py-12">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div>
-              <span className="font-display text-2xl font-bold text-primary">МясоРубка</span>
-              <p className="text-sm text-white/40 mt-1">Премиальное фермерское мясо с доставкой</p>
-            </div>
-            <div className="flex items-center gap-8">
-              {NAV_LINKS.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="text-sm text-white/50 hover:text-white transition-colors"
-                >
-                  {l.label}
-                </a>
               ))}
             </div>
           </div>
-          <div className="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <span className="text-xs text-white/30">
-              &copy; 2026 МясоРубка. Все права защищены.
+        </div>
+      </section>
+
+      {/* COOP BANNER */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={IMG_BATTLE} alt="" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background" />
+        </div>
+        <div className="relative max-w-4xl mx-auto px-6 text-center">
+          <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
+            Выживание — это <span className="text-primary text-glow">доверие</span> к союзнику
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Ваше развитие — заслуженная награда за преодоление испытаний.
+            Игра создаёт идеальные условия для игры с друзьями
+            и формирует лояльное комьюнити.
+          </p>
+        </div>
+      </section>
+
+      {/* SUPPORT */}
+      <section id="support" className="py-24 md:py-32 bg-secondary/50">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-xs font-semibold tracking-widest uppercase text-primary">
+              Поддержать проект
             </span>
-            <span className="text-xs text-white/30">
-              ИНН 7707123456 / ОГРН 1027700123456
+            <h2 className="font-display text-4xl md:text-5xl font-bold mt-3 mb-4">
+              Помогите создать<br />Song of the Ravens
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+              Мы — команда энтузиастов Non-solo Gaming. Каждый вклад приближает
+              релиз игры и помогает нам воплотить эту мрачную фантазию в реальность.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="border border-border bg-card p-8 text-center card-hover">
+              <div className="w-16 h-16 mx-auto flex items-center justify-center bg-primary/10 border border-primary/20 mb-6">
+                <Icon name="Heart" size={28} className="text-primary" />
+              </div>
+              <h3 className="font-display text-2xl font-bold mb-3">Донат</h3>
+              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                Поддержите разработку любой суммой. Реквизиты для перевода
+                будут добавлены после подключения платёжной системы.
+              </p>
+              <div className="border border-primary/20 bg-primary/5 p-4">
+                <p className="text-sm text-foreground font-medium">
+                  Реквизиты скоро появятся
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Следите за обновлениями
+                </p>
+              </div>
+            </div>
+
+            <div className="border border-border bg-card p-8 text-center card-hover">
+              <div className="w-16 h-16 mx-auto flex items-center justify-center bg-accent/10 border border-accent/20 mb-6">
+                <Icon name="Mail" size={28} className="text-accent" />
+              </div>
+              <h3 className="font-display text-2xl font-bold mb-3">Связаться с нами</h3>
+              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                Хотите сотрудничать, предложить идею или просто поддержать словом?
+                Напишите нам — мы всегда на связи.
+              </p>
+              <a
+                href="mailto:rinat_galimov_1998@bk.ru"
+                className="inline-flex items-center gap-2 bg-secondary border border-border px-6 py-3 text-sm font-semibold text-foreground hover:border-accent hover:text-accent transition-colors"
+              >
+                <Icon name="Mail" size={16} />
+                rinat_galimov_1998@bk.ru
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TEAM + FOOTER */}
+      <footer className="border-t border-border">
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8">
+            <div>
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-2 block">
+                Команда
+              </span>
+              <h3 className="font-display text-2xl font-bold">Non-solo Gaming</h3>
+              <p className="text-muted-foreground mt-1">Команда разработчиков-энтузиастов</p>
+            </div>
+            <a
+              href="mailto:rinat_galimov_1998@bk.ru"
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Icon name="Mail" size={16} />
+              rinat_galimov_1998@bk.ru
+            </a>
+          </div>
+          <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <span className="font-display text-lg font-bold">
+              SONG <span className="text-primary">OF THE</span> RAVENS
+            </span>
+            <span className="text-xs text-muted-foreground">
+              &copy; 2026 Non-solo Gaming. Все права защищены.
             </span>
           </div>
         </div>
